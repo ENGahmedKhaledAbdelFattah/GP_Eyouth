@@ -292,8 +292,11 @@ else:
             # Coerce security columns (replace mixed string/numbers)
             # The logic that makes it work:
             for col in ['OnlineSecurity', 'OnlineBackup', 'DeviceProtection', 'TechSupport', 'StreamingTV', 'StreamingMovies']:
-                df_prep[col] = df_prep[col].apply(lambda x: 1 if x == 'Yes' else 0)
+                df_prep[col] = df_prep[col].apply(lambda x: 1 if x == 'Yes' or x == 1 else 0)
                 
+            # Ensure all columns have numeric dtype matching the notebook training data
+            df_prep = df_prep.apply(pd.to_numeric, errors='coerce').fillna(0)
+            
             # Align features
             df_features = df_prep[feature_config['X_train_cols']]
             

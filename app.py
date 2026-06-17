@@ -252,7 +252,7 @@ else:
                 st.markdown("#### K-Means Customer Segments (PCA 2D)")
                 fig, ax = plt.subplots(figsize=(6, 5))
                 scatter = ax.scatter(df_pca[:, 0], df_pca[:, 1], c=clusters, cmap='Set1', alpha=0.5, s=12)
-                legend1 = ax.legend(*scatter.legend_elements(), title="Cluster", labels=['Loyal High Value', 'Mid Value Developing', 'New Low Value'])
+                legend1 = ax.legend(scatter.legend_elements()[0], ['Loyal High Value', 'Mid Value Developing', 'New Low Value'], title="Cluster")
                 ax.add_artist(legend1)
                 st.pyplot(fig)
                 
@@ -261,7 +261,7 @@ else:
                 fig, ax = plt.subplots(figsize=(6, 5))
                 churn_labels = df_raw['Churn'].map({'Yes': 1, 'No': 0}).values
                 scatter2 = ax.scatter(df_pca[:, 0], df_pca[:, 1], c=churn_labels, cmap='coolwarm', alpha=0.5, s=12)
-                legend2 = ax.legend(*scatter2.legend_elements(), title="Churn", labels=['No Churn', 'Churned'])
+                legend2 = ax.legend(scatter2.legend_elements()[0], ['No Churn', 'Churned'], title="Churn")
                 ax.add_artist(legend2)
                 st.pyplot(fig)
 

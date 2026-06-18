@@ -30,7 +30,7 @@ This repository hosts an end-to-end Machine Learning pipeline and an interactive
 *   **Machine Learning:** Scikit-Learn, XGBoost, LightGBM, CatBoost.
 *   **Dimensionality Reduction & Clustering:** PCA, K-Means.
 *   **Imbalance Handling:** SMOTE (imbalanced-learn).
-*   **Model Serialization:** Joblib.
+*   **Model Serialization:** Pickle.
 
 ---
 
@@ -42,11 +42,11 @@ This repository hosts an end-to-end Machine Learning pipeline and an interactive
 ├── app.py                                # Streamlit dashboard code (Bilingual)
 ├── requirements.txt                      # Cloud deployment dependencies
 ├── .gitignore                            # Excluded cache and temp directories
-├── encoder.joblib                        # Fitted One-Hot Encoder
-├── scaler.joblib                         # Fitted StandardScaler (continuous variables)
-├── scaler_cluster.joblib                 # Fitted StandardScaler (K-Means features)
-├── kmeans_final.joblib                   # Fitted K-Means model (K=3)
-├── xgb_model.joblib                      # Pre-trained XGBoost Classifier (recall: 90.64%)
+├── encoder.pkl                           # Fitted One-Hot Encoder
+├── scaler.pkl                            # Fitted StandardScaler (continuous variables)
+├── scaler_cluster.pkl                    # Fitted StandardScaler (K-Means features)
+├── kmeans_final.pkl                      # Fitted K-Means model (K=3)
+├── xgb_model.pkl                         # Pre-trained XGBoost Classifier (recall: 90.64%)
 ├── feature_names.json                    # Feature mapping dictionary
 └── README.md                             # Project Documentation (this file)
 ```

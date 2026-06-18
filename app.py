@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-import joblib
+import pickle
 import json
 import os
 import matplotlib.pyplot as plt
@@ -233,11 +233,16 @@ def load_dataset():
 # Load preprocessed variables and models
 def load_artifacts():
     try:
-        encoder = joblib.load("encoder.joblib")
-        scaler = joblib.load("scaler.joblib")
-        scaler_cluster = joblib.load("scaler_cluster.joblib")
-        kmeans_final = joblib.load("kmeans_final.joblib")
-        xgb_model = joblib.load("xgb_model.joblib")
+        with open("encoder.pkl", "rb") as f:
+            encoder = pickle.load(f)
+        with open("scaler.pkl", "rb") as f:
+            scaler = pickle.load(f)
+        with open("scaler_cluster.pkl", "rb") as f:
+            scaler_cluster = pickle.load(f)
+        with open("kmeans_final.pkl", "rb") as f:
+            kmeans_final = pickle.load(f)
+        with open("xgb_model.pkl", "rb") as f:
+            xgb_model = pickle.load(f)
         with open("feature_names.json", "r") as f:
             feature_config = json.load(f)
         return encoder, scaler, scaler_cluster, kmeans_final, xgb_model, feature_config
